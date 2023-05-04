@@ -1,0 +1,52 @@
+[
+    {
+        "name": "RK Hostel",
+        "rooms": "2 BHK",
+        "ac": "Ac",
+        "mess": "With Mess",
+        "address": "Near Gla University, Mathura",
+        "title": "2 BHK Fully Furnished Room With Mess For Students",
+        "desc": "We Provide full security and high quality food to student. Out Timing - 11:00 Pm",
+        "rent": "10000/Month"
+    },
+    {
+        "name": "Gopal PG",
+        "rooms": "1 BHK",
+        "ac": "Non-Ac",
+        "mess": "With Mess",
+        "address": "Infront of Gla University, Mathura",
+        "title": "1 BHK Fully Furnished Room With Mess For Students",
+        "desc": "We Provide full security and high quality food to student. Out Timing - 11:00 Pm",
+        "rent": "4000/Month"
+    },
+    {
+        "name": "RK Hostel",
+        "rooms": "2 BHK",
+        "ac": "Non-Ac",
+        "mess": "Without Mess",
+        "address": "Near Gla University, Mathura",
+        "title": "2 BHK Fully Furnished Room With Mess For Students",
+        "desc": "We Provide full security and high quality food to student. Out Timing - 11:00 Pm",
+        "rent": "3000/Month"
+    },
+    {
+        "name": "Shyam Hostel",
+        "rooms": "1 BHK",
+        "ac": "Non-Ac",
+        "mess": "Without Mess",
+        "address": "Behind Gla University, Mathura",
+        "title": "1 BHK Fully Furnished Room For Students",
+        "desc": "We Provide full security to student.Students have to manage their mess on their own. Out Timing - 11:00 Pm",
+        "rent": "5000/Month"
+    },
+    {
+        "name": "Rohan PG",
+        "rooms": "1 BHK",
+        "ac": "Ac",
+        "mess": "Without Mess",
+        "address": "Near Gla University, Mathura",
+        "title": "1 BHK Fully Furnished Room to Students",
+        "desc": "We Provide full security and to student.Student have to manage their own mess.  Out Timing - 11:00 Pm",
+        "rent": "8000/Month"
+    }
+]
