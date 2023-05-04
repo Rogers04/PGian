@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h3 class="text-center text-[2rem] mt-[5rem] font-bold" id="srchRes"></h3>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="-my-8 divide-y-2 divide-gray-100 text-center" id="srchData">
+
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        let srchData = document.getElementById("srchData");
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        room = getParameterByName("rooms");
+        ac = getParameterByName("ac");
+        mess = getParameterByName("mess");
+        let src = document.getElementById("srchRes");
+        src.innerHTML = `Search Result for <span class="text-red-600"> ${room} ${ac} ${mess} </span>`;
+        let filter = {
+            rooms: room,
+            ac,
+            mess
+        }
+        const getData = async () => {
+            let data = await fetch('pg.json');
+            let results = await data.json();
+            results = results.filter(function (item) {
+                for (var key in filter) {
+                    if (item[key] === undefined || item[key] != filter[key])
+                        return false;
+                }
+                return true;
+            });
+            if (results.length == 0){
+                srchData.innerHTML = `<span class="text-red-600 text-[3rem] text-center">!Sorry</span>, No PG Available`
+            }
+            for (const item of results) {
+                srchData.innerHTML += `
+                <div class="py-8 flex flex-wrap md:flex-nowrap">
+                    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                        <span class="font-semibold title-font text-gray-700">${item.name}</span>
+                        <span class="mt-1 text-gray-500 text-sm">${item.address}</span>
+                    </div>
+                    <div class="md:flex-grow">
+                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">${item.title}</h2>
+                        <p class="leading-relaxed">${item.desc}</p>
+                        <button
+                            class="mt-5 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                            ${item.rent}
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                `
+            }
+        };
+        getData();
+
+
+    </script>
+
+</body>
+
+</html>
